@@ -1,0 +1,42 @@
+<%= form_with(model: student_record, local: true) do |form| %>
+  <% if student_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student_record.errors.count, "error") %> prohibited this student_record from being saved:</h2>
+
+      <ul>
+      <% student_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :points %>
+    <%= form.number_field :points %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attended %>
+    <%= form.check_box :attended %>
+  </div>
+
+  <div class="field">
+    <%= form.label :chapter_id %>
+    <%= select(:student_record, :chapter_id, Chapter.all.pluck(:name, :id)) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= select(:student_record, :student_id, Student.all.pluck(:name, :id)) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

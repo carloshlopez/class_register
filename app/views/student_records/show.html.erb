@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @student_record.desc %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @student_record.points %>
+</p>
+
+<p>
+  <strong>Attended:</strong>
+  <%= @student_record.attended %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @student_record.student.name %>
+</p>
+
+<p>
+  <strong>Chapter:</strong>
+  <%= @student_record.chapter.name %>
+</p>
+
+<%= link_to 'Edit', edit_student_record_path(@student_record) %> |
+<%= link_to 'Back', student_records_path %>

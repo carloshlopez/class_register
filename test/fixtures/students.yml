@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  birth_date: 2019-08-02
+  points: 1
+  chapter: one
+
+two:
+  name: MyString
+  birth_date: 2019-08-02
+  points: 1
+  chapter: two

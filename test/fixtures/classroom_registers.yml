@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  happened_at: 2019-08-02
+  attendees: 1
+  description: MyText
+  chapter: one
+  teacher: one
+
+two:
+  happened_at: 2019-08-02
+  attendees: 1
+  description: MyText
+  chapter: two
+  teacher: two

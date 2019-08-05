@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Happened at:</strong>
+  <%= @classroom_register.happened_at %>
+</p>
+
+<p>
+  <strong>Attendees:</strong>
+  <%= @classroom_register.attendees %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @classroom_register.description %>
+</p>
+
+<p>
+  <strong>Chapter:</strong>
+  <%= @classroom_register.chapter.name %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @classroom_register.teacher.name %>
+</p>
+
+<%= link_to 'Edit', edit_classroom_register_path(@classroom_register) %> |
+<%= link_to 'Back', classroom_registers_path %>

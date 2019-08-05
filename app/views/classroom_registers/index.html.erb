@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Classroom Registers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Happened at</th>
+      <th>Attendees</th>
+      <th>Description</th>
+      <th>Chapter</th>
+      <th>Teacher</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @classroom_registers.each do |classroom_register| %>
+      <tr>
+        <td><%= classroom_register.happened_at %></td>
+        <td><%= classroom_register.attendees %></td>
+        <td><%= classroom_register.description %></td>
+        <td><%= classroom_register.chapter.name %></td>
+        <td><%= classroom_register.teacher.name %></td>
+        <td><%= link_to 'Show', classroom_register %></td>
+        <td><%= link_to 'Edit', edit_classroom_register_path(classroom_register) %></td>
+        <td><%= link_to 'Destroy', classroom_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Classroom Register', new_classroom_register_path %>

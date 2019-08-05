@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc: MyText
+  points: 1
+  attended: false
+  student: one
+
+two:
+  desc: MyText
+  points: 1
+  attended: false
+  student: two

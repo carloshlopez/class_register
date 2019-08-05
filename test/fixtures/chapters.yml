@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  country: MyString
+  city: MyString
+  started_at: 2019-08-02
+
+two:
+  name: MyString
+  country: MyString
+  city: MyString
+  started_at: 2019-08-02
