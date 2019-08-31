@@ -36,6 +36,32 @@
     <%= select(:classroom_register, :teacher_id, Teacher.all.pluck(:name, :id)) %>
   </div>
 
+  <div class="field">
+    <%= form.label :audio %>
+    <%= form.file_field :audio, multiple: false, direct_upload: true %>
+
+
+    <div id="controls">
+  	 <button id="recordButton" style="display:none;">Record</button>
+  	 <button id="stopButton" style="display:none;">Stop</button>
+    </div>
+    <div id="formats">Format: start recording to see sample rate</div>
+  	<h3>Recordings</h3>
+  	<ul id="recordingsList"> </ul>
+
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+
+
+  </div>
+
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, direct_upload: true %>
+  </div>
+
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

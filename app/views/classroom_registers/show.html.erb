@@ -25,5 +25,24 @@
   <%= @classroom_register.teacher.name %>
 </p>
 
+<p>
+  <strong>Images:</strong>
+  <ul>
+    <% @classroom_register.images.each do |file| %>
+      <li>
+        <!-- <%= image_tag url_for(file) %> -->
+        <%= image_tag file.variant(resize_to_limit: [100,100]) %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+<% unless @classroom_register.audio.attached? %>
+<p>
+  <strong>Audio:</strong>
+  <%= audio_tag(rails_blob_url(@classroom_register.audio), autoplay: false, controls: true) %>
+</p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_classroom_register_path(@classroom_register) %> |
 <%= link_to 'Back', classroom_registers_path %>
