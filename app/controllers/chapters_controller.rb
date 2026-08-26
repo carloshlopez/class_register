@@ -31,8 +31,8 @@ class ChaptersController < ApplicationController
         format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
         format.json { render :show, status: :created, location: @chapter }
       else
-        format.html { render :new }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @chapter.errors, status: :unprocessable_content }
       end
     end
   end
@@ -45,8 +45,8 @@ class ChaptersController < ApplicationController
         format.html { redirect_to @chapter, notice: 'Chapter was successfully updated.' }
         format.json { render :show, status: :ok, location: @chapter }
       else
-        format.html { render :edit }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: @chapter.errors, status: :unprocessable_content }
       end
     end
   end

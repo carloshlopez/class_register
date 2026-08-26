@@ -31,8 +31,8 @@ class StudentRecordsController < ApplicationController
         format.html { redirect_to @student_record, notice: 'Student record was successfully created.' }
         format.json { render :show, status: :created, location: @student_record }
       else
-        format.html { render :new }
-        format.json { render json: @student_record.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @student_record.errors, status: :unprocessable_content }
       end
     end
   end
@@ -45,8 +45,8 @@ class StudentRecordsController < ApplicationController
         format.html { redirect_to @student_record, notice: 'Student record was successfully updated.' }
         format.json { render :show, status: :ok, location: @student_record }
       else
-        format.html { render :edit }
-        format.json { render json: @student_record.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: @student_record.errors, status: :unprocessable_content }
       end
     end
   end

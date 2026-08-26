@@ -31,8 +31,8 @@ class ClassroomRegistersController < ApplicationController
         format.html { redirect_to @classroom_register, notice: 'Classroom register was successfully created.' }
         format.json { render :show, status: :created, location: @classroom_register }
       else
-        format.html { render :new }
-        format.json { render json: @classroom_register.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @classroom_register.errors, status: :unprocessable_content }
       end
     end
   end
@@ -45,8 +45,8 @@ class ClassroomRegistersController < ApplicationController
         format.html { redirect_to @classroom_register, notice: 'Classroom register was successfully updated.' }
         format.json { render :show, status: :ok, location: @classroom_register }
       else
-        format.html { render :edit }
-        format.json { render json: @classroom_register.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: @classroom_register.errors, status: :unprocessable_content }
       end
     end
   end

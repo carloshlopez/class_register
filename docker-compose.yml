@@ -1,0 +1,33 @@
+# Local PostgreSQL for development and test.
+#
+#   docker compose up -d db     # start
+#   docker compose down         # stop (data is kept in the pgdata volume)
+#   docker compose down -v      # stop and DELETE all local data
+#
+# The credentials here are deliberately trivial. They are for a database that
+# only ever listens on localhost for local development -- do not reuse them
+# anywhere that matters.
+
+services:
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: class_register
+      POSTGRES_PASSWORD: class_register
+      POSTGRES_DB: class_register_development
+    ports:
+      - "5432:5432"
+    volumes:
+      # PostgreSQL 18+ images want the mount at /var/lib/postgresql, NOT
+      # .../data -- they store data in a major-version subdirectory so that
+      # pg_upgrade --link works across a version bump.
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U class_register"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

@@ -27,16 +27,27 @@
 
 <p>
   <strong>Images:</strong>
-  <ul>
-    <% @classroom_register.images.each do |file| %>
-      <li>
-        <!-- <%= image_tag url_for(file) %> -->
-        <%= image_tag file.variant(resize_to_limit: [100,100]) %>
-      </li>
-    <% end %>
-  </ul>
 </p>
-<% unless @classroom_register.audio.attached? %>
+<ul>
+  <% @classroom_register.images.each do |file| %>
+    <li>
+      <%# Thumbnails are disabled. Generating a variant needs the image_processing
+          gem, which is commented out of the Gemfile because Active Storage 8.1
+          will not boot against this host's libvips 8.9.1 (it needs >= 8.13).
+          Images are shown at full size instead.
+
+          To restore thumbnails: install libvips >= 8.13, uncomment
+          image_processing in the Gemfile, and swap the line below back to
+            image_tag file.variant(resize_to_limit: [100, 100])
+          See docs/upgrade-notes.md section 5. %>
+      <%= image_tag url_for(file), style: "max-width: 100px; max-height: 100px;" %>
+    </li>
+  <% end %>
+</ul>
+<%# This condition was inverted: it rendered the player only when NO audio was
+    attached, and rails_blob_url on an unattached attachment raises, so the page
+    errored for every register without a recording. %>
+<% if @classroom_register.audio.attached? %>
 <p>
   <strong>Audio:</strong>
   <%= audio_tag(rails_blob_url(@classroom_register.audio), autoplay: false, controls: true) %>

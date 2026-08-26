@@ -19,36 +19,17 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color: #000; }
 
-  &:visited {
-    color: #666;
-  }
+th { padding-bottom: 5px; }
 
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+td { padding: 0 5px 7px; }
 
-th {
-  padding-bottom: 5px;
-}
+div.field, div.actions { margin-bottom: 10px; }
 
-td {
-  padding: 0 5px 7px;
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-#notice {
-  color: green;
-}
+#notice { color: green; }
 
 .field_with_errors {
   padding: 2px;
@@ -62,23 +43,21 @@ div {
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px -7px 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
 }
 
-label {
-  display: block;
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
 }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+label { display: block; }

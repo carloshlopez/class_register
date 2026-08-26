@@ -1,5 +1,17 @@
 //webkitURL is deprecated but nevertheless
-document.addEventListener("DOMContentLoaded", function(event) {
+
+// This file is bundled into application.js by `require_tree .`, so it runs on
+// EVERY page -- but only the classroom-register new/edit forms contain the
+// record buttons. It used to call addEventListener on a null element and throw
+// on every other page, which aborted the rest of the script. It now bails out
+// early when the buttons are absent.
+//
+// Turbo also does not fire DOMContentLoaded on client-side visits, so this
+// binds to turbo:load as well.
+document.addEventListener("DOMContentLoaded", initRecordingAudio);
+document.addEventListener("turbo:load", initRecordingAudio);
+
+function initRecordingAudio(event) {
   //do work
 
 URL = window.URL || window.webkitURL;
@@ -15,7 +27,18 @@ var audioContext //audio context to help us record
 var recordButton = document.getElementById("recordButton");
 var stopButton = document.getElementById("stopButton");
 //var pauseButton = document.getElementById("pauseButton");
-console.log("recordButton", recordButton);
+
+// Not on a page with the recorder widget -- nothing to set up.
+if (!recordButton || !stopButton) { return; }
+
+// NOTE: recording still will not work until Recorder.js is available. The
+// register form loads it from cdn.rawgit.com, which shut down in October 2019.
+// See docs/upgrade-notes.md section 7.
+if (typeof Recorder === "undefined") {
+  console.warn("Recorder.js is not loaded; the recording widget is disabled.");
+  return;
+}
+
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
@@ -176,5 +199,4 @@ function createDownloadLink(blob) {
 	console.log("anItem", anItem);
 	recordingsList.replaceChild(li, anItem);
 }
-
-});
+}

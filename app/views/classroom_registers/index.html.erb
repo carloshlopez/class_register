@@ -24,7 +24,7 @@
         <td><%= classroom_register.teacher.name %></td>
         <td><%= link_to 'Show', classroom_register %></td>
         <td><%= link_to 'Edit', edit_classroom_register_path(classroom_register) %></td>
-        <td><%= link_to 'Destroy', classroom_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', classroom_register, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

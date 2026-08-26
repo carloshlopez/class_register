@@ -24,7 +24,7 @@
         <td><%= student_record.chapter.name %></td>
         <td><%= link_to 'Show', student_record %></td>
         <td><%= link_to 'Edit', edit_student_record_path(student_record) %></td>
-        <td><%= link_to 'Destroy', student_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', student_record, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
