@@ -39,8 +39,12 @@ class ChaptersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy chapter" do
+    # :one has classroom_register/student/student_record fixtures pointing at
+    # it via not-null foreign keys, so use an unreferenced fixture here.
+    chapter = chapters(:three)
+
     assert_difference('Chapter.count', -1) do
-      delete chapter_url(@chapter)
+      delete chapter_url(chapter)
     end
 
     assert_redirected_to chapters_url

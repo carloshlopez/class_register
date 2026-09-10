@@ -11,3 +11,11 @@ two:
   country: MyString
   city: MyString
   started_at: 2019-08-02
+
+# Deliberately not referenced by any classroom_register, student, or
+# student_record fixture, so the destroy test has no FK dependents to trip on.
+three:
+  name: MyString
+  country: MyString
+  city: MyString
+  started_at: 2019-08-02

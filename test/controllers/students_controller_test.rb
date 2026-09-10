@@ -39,8 +39,12 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy student" do
+    # :one has a student_record fixture pointing at it via a not-null
+    # foreign key, so use an unreferenced fixture here.
+    student = students(:three)
+
     assert_difference('Student.count', -1) do
-      delete student_url(@student)
+      delete student_url(student)
     end
 
     assert_redirected_to students_url

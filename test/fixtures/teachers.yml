@@ -5,3 +5,8 @@ one:
 
 two:
   name: MyString
+
+# Deliberately not referenced by any classroom_register fixture, so the
+# destroy test has no FK dependents to trip on.
+three:
+  name: MyString

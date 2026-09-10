@@ -11,3 +11,11 @@ two:
   birth_date: 2019-08-02
   points: 1
   chapter: two
+
+# Deliberately not referenced by any student_record fixture, so the destroy
+# test has no FK dependents to trip on.
+three:
+  name: MyString
+  birth_date: 2019-08-02
+  points: 1
+  chapter: one

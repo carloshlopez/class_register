@@ -1,4 +1,5 @@
 ENV['RAILS_ENV'] ||= 'test'
+ENV['HERMES_API_TOKEN'] ||= 'test-hermes-token'
 require_relative '../config/environment'
 require 'rails/test_help'
 

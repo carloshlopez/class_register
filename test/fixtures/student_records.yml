@@ -5,9 +5,11 @@ one:
   points: 1
   attended: false
   student: one
+  chapter: one
 
 two:
   desc: MyText
   points: 1
   attended: false
   student: two
+  chapter: two
