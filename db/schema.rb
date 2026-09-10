@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_26_014952) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_10_153055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -57,6 +57,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_26_014952) do
     t.datetime "created_at", precision: nil, null: false
     t.text "description"
     t.date "happened_at"
+    t.string "registered_by"
     t.bigint "teacher_id"
     t.datetime "updated_at", precision: nil, null: false
     t.index ["chapter_id"], name: "index_classroom_registers_on_chapter_id"
